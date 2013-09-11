@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\gtl\allocator.h" />
+    <ClInclude Include="..\gtl\allocator\allocator.h" />
+    <ClInclude Include="..\gtl\allocator\stl_allocator.h" />
+    <ClInclude Include="..\gtl\common.h" />
+    <ClInclude Include="..\gtl\config.h" />
+    <ClInclude Include="..\gtl\containers\algorithm.h" />
+    <ClInclude Include="..\gtl\containers\construct.h" />
+    <ClInclude Include="..\gtl\containers\emplace.h" />
+    <ClInclude Include="..\gtl\containers\ilist.h" />
+    <ClInclude Include="..\gtl\containers\list.h" />
+    <ClInclude Include="..\gtl\containers\list_base.h" />
+    <ClInclude Include="..\gtl\containers\registry.h" />
+    <ClInclude Include="..\gtl\containers\vector.h" />
+    <ClInclude Include="..\gtl\context.h" />
+    <ClInclude Include="..\gtl\debug.h" />
+    <ClInclude Include="..\gtl\diagnostics\assert.h" />
+    <ClInclude Include="..\gtl\diagnostics\current_function.h" />
+    <ClInclude Include="..\gtl\diagnostics\exception.h" />
+    <ClInclude Include="..\gtl\diagnostics\win\win_exception.h" />
+    <ClInclude Include="..\gtl\empty.h" />
+    <ClInclude Include="..\gtl\format.h" />
+    <ClInclude Include="..\gtl\format\format.h" />
+    <ClInclude Include="..\gtl\format\print.h" />
+    <ClInclude Include="..\gtl\noncopyable.h" />
+    <ClInclude Include="..\gtl\pool.h" />
+    <ClInclude Include="..\gtl\pool\gcd_lcm.h" />
+    <ClInclude Include="..\gtl\pool\pool.h" />
+    <ClInclude Include="..\gtl\range.h" />
+    <ClInclude Include="..\gtl\range\algorithm.h" />
+    <ClInclude Include="..\gtl\range\detail\range_adapter.h" />
+    <ClInclude Include="..\gtl\range\iterator_range.h" />
+    <ClInclude Include="..\gtl\range\range.h" />
+    <ClInclude Include="..\gtl\scoped.h" />
+    <ClInclude Include="..\gtl\stream.h" />
+    <ClInclude Include="..\gtl\stream\container_adapters.h" />
+    <ClInclude Include="..\gtl\stream\range_adapters.h" />
+    <ClInclude Include="..\gtl\stream\stream.h" />
+    <ClInclude Include="..\gtl\stream\stream_adapters.h" />
+    <ClInclude Include="..\gtl\string.h" />
+    <ClInclude Include="..\gtl\string\char_range.h" />
+    <ClInclude Include="..\gtl\string\cstr.h" />
+    <ClInclude Include="..\gtl\string\utils.h" />
+    <ClInclude Include="..\gtl\test.h" />
+    <ClInclude Include="..\gtl\type_traits.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\gtl\containers\gen.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\gtl\diagnostics\win\debug_impl.cpp" />
+    <ClCompile Include="..\gtl\string\cstr.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{33946079-21F9-45FD-B2BA-09A84FA72E33}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>GTL</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\vs_props\Ravel Base.props" />
+    <Import Project="..\..\vs_props\GTL Debug.props" />
+    <Import Project="Common.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\vs_props\Ravel Base.props" />
+    <Import Project="..\..\vs_props\GTL Debug.props" />
+    <Import Project="Common.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\vs_props\Ravel Base.props" />
+    <Import Project="..\..\vs_props\GTL Release.props" />
+    <Import Project="Common.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\vs_props\Ravel Base.props" />
+    <Import Project="..\..\vs_props\GTL Release.props" />
+    <Import Project="Common.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

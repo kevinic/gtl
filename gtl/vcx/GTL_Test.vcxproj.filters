@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\test\win\main.cpp" />
+    <ClCompile Include="..\test\win\stdafx.cpp" />
+    <ClCompile Include="..\test\allocator.cpp" />
+    <ClCompile Include="..\test\containers.cpp" />
+    <ClCompile Include="..\test\pool.cpp" />
+    <ClCompile Include="..\test\format.cpp" />
+    <ClCompile Include="..\test\string.cpp" />
+    <ClCompile Include="..\test\scoped.cpp" />
+    <ClCompile Include="..\test\range.cpp" />
+    <ClCompile Include="..\test\stream.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\test\win\stdafx.h" />
+    <ClInclude Include="..\test\win\targetver.h" />
+    <ClInclude Include="..\test\common.h" />
+    <ClInclude Include="..\test\tests.h" />
+    <ClInclude Include="..\test\test_allocator.h" />
+  </ItemGroup>
+</Project>
