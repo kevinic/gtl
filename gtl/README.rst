@@ -57,8 +57,8 @@ Moreover, range definitions are provided in addition to iterators, making
 certain lazy evaluations possible (such as range splicing, joining, & etc).  It
 also makes abstracting enumerators easier.
 
-Instead of move constructors, the containers have insertion methods that simply
-take a functor, which can be used to construct raw memory in any fashion.
+Emplacement in containers is done through functors instead of ravlue
+references, which allows the user to construct raw memory in any fashion.
 
 Associative containers are discouraged and excluded from the library.
 
