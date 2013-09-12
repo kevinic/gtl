@@ -57,8 +57,17 @@ Moreover, range definitions are provided in addition to iterators, making
 certain lazy evaluations possible (such as range splicing, joining, & etc).  It
 also makes abstracting enumerators easier.
 
-Emplacement in containers is done through functors instead of ravlue
-references, which allows the user to construct raw memory in any fashion.
+In addition to emplace insertion, the containers also have func_emplace*
+methods.  Those methods simply take a functor, which is then used to construct
+the new element(s).
+
+.. code::
+
+    gtl::Vector<Obj> v;
+    //gtl::emplace returns a functor that calls the placement constructor
+    //with the bound parameters
+    v.func_emplace_back(gtl::emplace(param1, param2));
+
 
 Associative containers are discouraged and excluded from the library.
 

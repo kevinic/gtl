@@ -119,14 +119,6 @@ public:
 	{
 	}
 
-	template <class Emplace_Func>
-	Vector(Context const* context, size_t count, Emplace_Func func) :
-		storage_type(context, count)
-	{
-		this->m_finish = this->m_start + count;
-		emplace_construct_range(all(), func);
-	}
-
 	Vector(Vector const& other) :
 		storage_type(other.m_context, other.size())
 	{
@@ -164,16 +156,17 @@ public:
 
 	void push_back(const value_type& x)
 	{
-		push_back(emplace(x));
+		func_emplace_back(gtl::emplace(x));
 	}
 
-	void push_back()
+	template <class TT>
+	void emplace_back(TT&& x)
 	{
-		push_back(emplace());
+		func_emplace_back(gtl::emplace(x));
 	}
 
 	template <class Func_T>
-	void push_back(Func_T emplace_func)
+	void func_emplace_back(Func_T emplace_func)
 	{
 		if (this->m_finish != this->m_end)
 		{
@@ -188,16 +181,17 @@ public:
 
 	void fixed_push_back(const value_type& x)
 	{
-		fixed_push_back(emplace(x));
+		fixed_func_emplace_back(gtl::emplace(x));
 	}
 
-	void fixed_push_back()
+	template <class TT>
+	void fixed_emplace_back(TT&& x)
 	{
-		fixed_push_back(emplace());
+		fixed_func_emplace_back(gtl::emplace(x));
 	}
 
 	template <class Func_T>
-	void fixed_push_back(Func_T emplace_func)
+	void fixed_func_emplace_back(Func_T emplace_func)
 	{
 		GTL_ASSERT(this->m_finish != this->m_end);
 		emplace_func(this->m_finish);
@@ -206,31 +200,27 @@ public:
 
 	iterator insert(iterator position, const T& x) 
 	{
-		size_t n = position - begin();
-		if (this->m_finish != this->m_end && position == end())
-		{
-			copy_construct(this->m_finish, x);
-			++this->m_finish;
-		}
-		else
-		{
-			T x_copy = x;
-			insert_aux(position, emplace(x_copy));
-		}
-		return begin() + n;
+		return func_emplace(position, gtl::emplace(x));
 	}
 
-	iterator insert(iterator position)
+	template <class TT>
+	iterator emplace(iterator position, TT&& x)
+	{
+		return func_emplace(position, gtl::emplace(x));
+	}
+
+	template <class Func_T>
+	iterator func_emplace(iterator position, Func_T func)
 	{
 		size_t n = position - begin();
 		if (this->m_finish != this->m_end && position == end())
 		{
-			construct(this->m_finish);
+			func(this->m_finish);
 			++this->m_finish;
 		}
 		else
 		{
-			m_insert_aux(position, emplace());
+			insert_aux(position, func);
 		}
 		return begin() + n;
 	}

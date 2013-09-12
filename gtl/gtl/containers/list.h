@@ -199,16 +199,17 @@ public:
 	
 	iterator insert(iterator position, T const& x)
 	{
-		return insert(position, emplace(x));
+		return func_emplace(position, gtl::emplace(x));
 	}
 
-	iterator insert(iterator position)
+	template <class TT>
+	iterator emplace(iterator position, TT&& x)
 	{
-		return insert(position, emplace());
+		return func_emplace(position, gtl::emplace(x));
 	}
 
 	template <class Emplace_T>
-	iterator insert(iterator position, Emplace_T func)
+	iterator func_emplace(iterator position, Emplace_T func)
 	{
 		auto deleter = [this](node_type* p){dealloc_node(p);};
 		auto node(scope(alloc_node(), deleter));
@@ -229,15 +230,20 @@ public:
 		insert_range(position, make_range(first, last));
 	}
 
-	void push_front(T const& x) {insert(begin(), emplace(x)); }
-	void push_front() {insert(begin()); }
-	template <class Emplace_T>
-	void push_front(Emplace_T func) {insert(begin(), func);}
+	void push_front(T const& x) {func_emplace(begin(), gtl::emplace(x)); }
+	void push_back(T const& x) {func_emplace(end(), gtl::emplace(x)); }
+	
+	template <class TT>
+	void emplace_front(TT& x) {func_emplace(begin(), gtl::emplace(x));}
 
-	void push_back(T const& x) {insert(end(), emplace(x)); }
-	void push_back() {insert(end()); }
+	template <class TT>
+	void emplace_back(TT& x) {func_emplace(end(), gtl::emplace(x));}
+
 	template <class Emplace_T>
-	void push_back(Emplace_T func) {insert(end(), func);}
+	void func_emplace_front(Emplace_T func) {insert(begin(), func);}
+
+	template <class Emplace_T>
+	void func_emplace_back(Emplace_T func) {insert(end(), func);}
 
 	iterator erase(iterator position)
 	{

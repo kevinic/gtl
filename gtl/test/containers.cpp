@@ -111,7 +111,7 @@ public:
 			array_type array(&m_context, 5, Empty_Storage_Tag());
 			for(uint i = 0; i < 5; ++i)
 			{
-				array.fixed_push_back(emplace(i));
+				array.fixed_func_emplace_back(emplace(i));
 			}
 
 			array_type::range range(array.all());
@@ -128,7 +128,7 @@ public:
 			array_type array(&m_context);
 			for(int i = 0; i < 5; ++i)
 			{
-				array.push_back();
+				array.func_emplace_back(emplace());
 				array.pop_back();
 				array.push_back(i);
 			}
